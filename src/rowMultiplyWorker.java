@@ -5,16 +5,16 @@ public class rowMultiplyWorker implements Runnable {
     private final int[][] result;
     private int[][] matrix1;
     private int[][] matrix2;
-    private ArrayList<Integer> rows;
+    private int[] rows;
 
-    public rowMultiplyWorker(int[][] result, int[][] matrix1, int[][] matrix2, int row) {
+    public rowMultiplyWorker(int[][] result, int[][] matrix1, int[][] matrix2, int p,int np) {
         this.result = result;
         this.matrix1 = matrix1;
         this.matrix2 = matrix2;
-        rows=new ArrayList<>();
-        for (int i = 0; i < matrix1.length; i++) {
-            if ((i+1)%(row+1)==0)
-                rows.add(i);
+        int n = matrix1.length/np;
+        rows=new int[n];
+        for (int i = 0; i < n; i++) {
+            rows[i]= p*n+i;
         }
     }
 

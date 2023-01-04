@@ -18,8 +18,8 @@ public class MatrixMultiplication {
             System.out.println("For size = "+i);
             System.out.println("Serial Multiply Time taken in milli seconds: " + sTime);
             int[][] parallelResult = new int[m1.length][m2[0].length];
-            long pTime=0;
-            int p = 20;
+            double pTime=0;
+            int p = 10;
             for (int j = 0; j < 20; j++) {
                 Date parallelStart = new Date();
                 ParallelThreadsCreator.multiply(m1, m2, parallelResult,p);
@@ -27,6 +27,7 @@ public class MatrixMultiplication {
                 pTime+=(parallelEnd.getTime() - parallelStart.getTime());
             }
             pTime/=20;
+            pTime++;
             System.out.println("Parallel Multiply Time taken in milli seconds: " + pTime);
             double speedUp=Double.parseDouble(df.format((double)sTime/pTime));
             System.out.println("Speed up = " + speedUp);
