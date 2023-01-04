@@ -24,4 +24,13 @@ public class matrix {
         }
         return result;
     }
+    public static boolean check(int[][] r1,int[][] r2){
+        for (int i = 0; i < r1.length; i++) {
+            for (int j = 0; j < r1[0].length; j++) {
+                if (r1[i][j]!=r2[i][j])
+                    return false;
+            }
+        }
+        return true;
+    }
 }
